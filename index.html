@@ -54,10 +54,10 @@ BUTTON GRID (PYRAMID)
 ==========================*/
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(2,320px);
-    justify-content:center;
-    gap:35px;
+display:grid;
+grid-template-columns:repeat(2,220px);
+justify-content:center;
+gap:50px 90px;
 }
 
 /* Center the first button */
@@ -81,7 +81,8 @@ CARD
 ==========================*/
 
 .card{
-width:320px;
+width:220px;
+text-align:center;
 }
 
 /*==========================
@@ -92,50 +93,52 @@ MAIN BUTTON
 
 position:relative;
 
-width:100%;
-height:85px;
+/* Circle */
+width:220px;
+height:220px;
+border-radius:50%;
 
-border-radius:8px;
+/* Center text */
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
 
-border:2px solid rgba(255,255,255,.6);
+margin:0 auto;
 
 cursor:pointer;
-
 overflow:hidden;
+border:5px solid #0b0f18;
 
-font-size:23px;
+/* Metallic Blue */
+background:
+radial-gradient(circle at 50% 30%,
+#dff7ff 0%,
+#7fd8ff 15%,
+#38a4ff 35%,
+#1567d8 55%,
+#0b3f9d 72%,
+#07296b 100%);
+
+color:white;
+font-size:24px;
 font-weight:700;
 letter-spacing:1px;
 
-color:white;
+text-shadow:
+0 1px 2px black,
+0 0 10px rgba(255,255,255,.8);
 
-backdrop-filter:blur(12px);
+box-shadow:
+0 12px 18px rgba(0,0,0,.55),
+0 0 18px rgba(70,170,255,.8),
+inset 0 8px 18px rgba(255,255,255,.45),
+inset 0 -12px 16px rgba(0,0,0,.45);
 
-background:
+transition:.25s;
 
-linear-gradient(
-
-135deg,
-
-#dff6ff 0%,
-
-#8fd3ff 10%,
-
-#5fb8ff 20%,
-
-#328eff 35%,
-
-#155ec9 50%,
-
-#0d46a5 60%,
-
-#328eff 72%,
-
-#69c7ff 85%,
-
-#dff6ff 100%
-
-);
+}
 
 box-shadow:
 
