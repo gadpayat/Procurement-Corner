@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Procurement Corner</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+/*==========================
+TRANSPARENT CANVAS
+==========================*/
+html,body{
+width:100%;
+height:100%;
+background:transparent;
+overflow-x:hidden;
+}
+
+/*==========================
+MAIN CONTAINER
+==========================*/
+.container{
+
+max-width:1200px;
+margin:auto;
+padding:40px 20px 80px;
+}
+
+h1{
+text-align:center;
+margin-bottom:40px;
+font-size:42px;
+font-weight:700;
+letter-spacing:2px;
+color:white;
+text-shadow:
+0 0 6px rgba(255,255,255,.7),
+0 0 12px rgba(80,180,255,.8);
+}
+
+/*==========================
+BUTTON GRID
+==========================*/
+
+.grid{
+
+display:flex;
+justify-content:center;
+gap:35px;
+flex-wrap:wrap;
+
+}
+
+/*==========================
+CARD
+==========================*/
+
+.card{
+width:320px;
+}
+
+/*==========================
+MAIN BUTTON
+==========================*/
+
+.mainBtn{
+
+position:relative;
+
+width:100%;
+height:85px;
+
+border-radius:8px;
+
+border:2px solid rgba(255,255,255,.6);
+
+cursor:pointer;
+
+overflow:hidden;
+
+font-size:23px;
+font-weight:700;
+letter-spacing:1px;
+
+color:white;
+
+backdrop-filter:blur(12px);
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#dff6ff 0%,
+
+#8fd3ff 10%,
+
+#5fb8ff 20%,
+
+#328eff 35%,
+
+#155ec9 50%,
+
+#0d46a5 60%,
+
+#328eff 72%,
+
+#69c7ff 85%,
+
+#dff6ff 100%
+
+);
+
+box-shadow:
+
+0 0 18px rgba(40,140,255,.55),
+
+inset 0 1px 1px rgba(255,255,255,.9),
+
+inset 0 -2px 6px rgba(0,0,0,.45);
+
+transition:.35s;
+
+}
+
+/* Hover */
+
+.mainBtn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+
+0 0 30px rgba(0,180,255,.9),
+
+0 0 60px rgba(0,120,255,.5);
+
+}
+
+/* Ripple */
+
+.mainBtn::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+width:10px;
+
+height:10px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.45);
+
+transform:translate(-50%,-50%) scale(0);
+
+animation:ripple 2.5s infinite;
+
+}
+
+@keyframes ripple{
+
+0%{
+
+transform:translate(-50%,-50%) scale(0);
+
+opacity:.8;
+
+}
+
+70%{
+
+transform:translate(-50%,-50%) scale(22);
+
+opacity:0;
+
+}
+
+100%{
+
+opacity:0;
+
+}
+
+}
+
+/*==========================
+SUB BUTTONS
+==========================*/
+
+.subMenu{
+
+display:none;
+
+padding-top:18px;
+
+}
+
+.subMenu.active{
+
+display:block;
+
+animation:fade .35s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(-10px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+/*==========================
+FOLDER BUTTON
+==========================*/
+
+.folder{
+
+display:block;
+
+position:relative;
+
+margin-bottom:16px;
+
+padding:15px;
+
+padding-top:22px;
+
+text-decoration:none;
+
+font-weight:600;
+
+color:white;
+
+text-align:center;
+
+border-radius:8px;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#5d0a00 0%,
+
+#9d2100 10%,
+
+#d04000 20%,
+
+#f1a300 35%,
+
+#ffe75a 50%,
+
+#f5b000 60%,
+
+#b62f00 75%,
+
+#7d1200 90%,
+
+#4d0600 100%
+
+);
+
+box-shadow:
+
+0 4px 12px rgba(0,0,0,.35),
+
+inset 0 1px 2px rgba(255,255,255,.7);
+
+transition:.30s;
+
+}
+
+/* Folder tab */
+
+.folder:before{
+
+content:"";
+
+position:absolute;
+
+top:-8px;
+
+left:18px;
+
+width:70px;
+
+height:18px;
+
+border-radius:6px 6px 0 0;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#f8ea74,
+
+#c67a00,
+
+#ffef8a
+
+);
+
+}
+
+.folder:hover{
+
+transform:translateX(6px);
+
+box-shadow:
+
+0 0 18px gold;
+
+}
+
+/*==========================
+FOOTER
+==========================*/
+
+footer{
+
+position:fixed;
+
+bottom:10px;
+
+left:0;
+
+width:100%;
+
+text-align:center;
+
+font-size:13px;
+
+color:white;
+
+letter-spacing:1px;
+
+text-shadow:0 0 4px black;
+
+}
+
+@media(max-width:950px){
+
+.grid{
+
+flex-direction:column;
+align-items:center;
+
+}
+
+.card{
+
+width:100%;
+
+max-width:420px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>PROCUREMENT CORNER</h1>
+
+<div class="grid">
+
+<!-- BUTTON 1 -->
+
+<div class="card">
+
+<button class="mainBtn">Procurement Forms</button>
+
+<div class="subMenu">
+
+<a class="folder" href="#" target="_blank">Repository 1</a>
+
+<a class="folder" href="#" target="_blank">Repository 2</a>
+
+<a class="folder" href="#" target="_blank">Repository 3</a>
+
+<a class="folder" href="#" target="_blank">Repository 4</a>
+
+<a class="folder" href="#" target="_blank">Repository 5</a>
+
+</div>
+
+</div>
+
+<!-- BUTTON 2 -->
+
+<div class="card">
+
+<button class="mainBtn">Bid Documents</button>
+
+<div class="subMenu">
+
+<a class="folder" href="#" target="_blank">Invitation to Bid</a>
+
+<a class="folder" href="#" target="_blank">BAC Documents</a>
+
+<a class="folder" href="#" target="_blank">Notice of Award</a>
+
+</div>
+
+</div>
+
+<!-- BUTTON 3 -->
+
+<div class="card">
+
+<button class="mainBtn">Engineering</button>
+
+<div class="subMenu">
+
+<a class="folder" href="#" target="_blank">Program of Work</a>
+
+<a class="folder" href="#" target="_blank">Cost Estimates</a>
+
+<a class="folder" href="#" target="_blank">As-Built Plans</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 Ghilous. All Rights Reserved.
+
+</footer>
+
+<script>
+
+const buttons=document.querySelectorAll(".mainBtn");
+
+buttons.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const menu=btn.nextElementSibling;
+
+menu.classList.toggle("active");
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
