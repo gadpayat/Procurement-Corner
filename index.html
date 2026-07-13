@@ -52,35 +52,28 @@
         /*==================================================
             BUTTON GRID (PYRAMID)
         ==================================================*/
-        .grid{
-    display:grid;
-    grid-template-columns:220px 220px;
-    grid-template-areas:
-        "top top"
-        "left right";
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 320px);
+            justify-content: center;
+            gap: 35px;
+        }
 
-    justify-content:center;
-    column-gap:60px;
-    row-gap:40px;
+        /* Top button */
+        .card:nth-child(1) {
+            grid-column: 1 / span 2;
+            justify-self: center;
+        }
 
-    width:max-content;
-    margin:0 auto;
-}
+        /* Bottom Left */
+        .card:nth-child(2) {
+            justify-self: end;
+        }
 
-.card:nth-child(1){
-    grid-area:top;
-    justify-self:center;
-}
-
-.card:nth-child(2){
-    grid-area:left;
-    justify-self:center;
-}
-
-.card:nth-child(3){
-    grid-area:right;
-    justify-self:center;
-}
+        /* Bottom Right */
+        .card:nth-child(3) {
+            justify-self: start;
+        }
 
         /*==================================================
             CARD
