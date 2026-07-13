@@ -87,14 +87,28 @@
         ==================================================*/
         .mainBtn {
             position: relative;
-            width: 220px;
-            height: 220px;
+            width:220px;
+            height:220px;
+            margin:auto;
             border-radius: 50%;
             margin:0 auto;
             cursor: pointer;
             overflow: hidden;
 
             border:10px solid;
+
+            border-image:linear-gradient(
+                135deg,
+                #ffffff 0%,
+                #eef1f4 8%,
+                #d9dde1 18%,
+                #b9c0c7 30%,
+                #8d959d 42%,
+                #d5d9de 55%,
+                #f7f8fa 68%,
+                #b6bcc3 82%,
+                #ffffff 100%
+                ) 1;
             border-image:linear-gradient(
 135deg,
 #f8f9fa 0%,
@@ -139,11 +153,11 @@
         .mainBtn::before {
             content: "";
             position: absolute;
-            top: 8px;
-            left: 10%;
-            width: 80%;
-            height: 38%;
-            border-radius: 50%;
+            top:18px;
+            left:12%;
+            width:76%;
+            height:32%;
+            border-radius:50%;
 
             background: linear-gradient(
                 to bottom,
