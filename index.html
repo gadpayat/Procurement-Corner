@@ -505,7 +505,6 @@
             <a href="LINK12" target="_blank">Spreadsheet 4</a>
         </div>
     </div>
-
 </div>
 
     <footer>
@@ -534,6 +533,31 @@
 
     });
 });
+
+        const folders = document.querySelectorAll(".folderGroup .folder");
+
+folders.forEach(folder => {
+
+    folder.addEventListener("click", () => {
+
+        const submenu = folder.nextElementSibling;
+
+        const isOpen = submenu.classList.contains("active");
+
+        // Close all second-level menus
+        document.querySelectorAll(".subFolderMenu").forEach(menu => {
+            menu.classList.remove("active");
+        });
+
+        // Open only the clicked one
+        if(!isOpen){
+            submenu.classList.add("active");
+        }
+
+    });
+
+});
+        
     </script>
 
 </body>
