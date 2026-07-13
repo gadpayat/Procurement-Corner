@@ -1,522 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Procurement Corner</title>
+    <title>Procurement Corner</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-/*==========================
-TRANSPARENT CANVAS
-==========================*/
-html,body{
-width:100%;
-height:100%;
-background:transparent;
-overflow-x:hidden;
-}
-
-/*==========================
-MAIN CONTAINER
-==========================*/
-.container{
-
-max-width:1200px;
-margin:auto;
-padding:40px 20px 80px;
-}
-
-h1{
-text-align:center;
-margin-bottom:40px;
-font-size:42px;
-font-weight:700;
-letter-spacing:2px;
-color:white;
-text-shadow:
-0 0 6px rgba(255,255,255,.7),
-0 0 12px rgba(80,180,255,.8);
-}
-
-/*==========================
-BUTTON GRID (PYRAMID)
-==========================*/
-
-.grid{
-display:grid;
-grid-template-columns:repeat(2,220px);
-justify-content:center;
-gap:50px 90px;
-}
-
-/* Center the first button */
-.card:nth-child(1){
-    grid-column:1 / span 2;
-    justify-self:center;
-}
-
-/* Left button on second row */
-.card:nth-child(2){
-    justify-self:end;
-}
-
-/* Right button on second row */
-.card:nth-child(3){
-    justify-self:start;
-}
-
-/*==========================
-CARD
-==========================*/
-
-.card{
-width:220px;
-text-align:center;
-}
-
-/*==========================
-MAIN BUTTON
-==========================*/
-
-.mainBtn{
-
-position:relative;
-
-/* Circle */
-width:220px;
-height:220px;
-border:15px solid;
-
-border-image:linear-gradient(
-135deg,
-#f8f9fa 0%,
-#d9dde1 8%,
-#b9c0c7 18%,
-#8b939b 30%,
-#6d747c 42%,
-#d5d9de 55%,
-#f2f3f5 68%,
-#9aa2aa 82%,
-#6a7178 92%,
-#50575f 100%
-) 1;
-
-/* Center text */
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-
-margin:0 auto;
-
-cursor:pointer;
-overflow:hidden;
-border:5px solid #0b0f18;
-
-/* Metallic Blue */
-background:
-radial-gradient(circle at 50% 30%,
-#dff7ff 0%,
-#7fd8ff 15%,
-#38a4ff 35%,
-#1567d8 55%,
-#0b3f9d 72%,
-#07296b 100%);
-
-color:white;
-font-size:24px;
-font-weight:700;
-letter-spacing:1px;
-
-text-shadow:
-0 1px 2px black,
-0 0 10px rgba(255,255,255,.8);
-
-box-shadow:
-0 12px 18px rgba(0,0,0,.55),
-0 0 18px rgba(70,170,255,.8),
-inset 0 8px 18px rgba(255,255,255,.45),
-inset 0 -12px 16px rgba(0,0,0,.45);
-
-transition:.25s;
-
-}
-
-box-shadow:
-
-0 0 18px rgba(40,140,255,.55),
-
-inset 0 1px 1px rgba(255,255,255,.9),
-
-inset 0 -2px 6px rgba(0,0,0,.45);
-
-transition:.35s;
-
-}
-
-/* Hover */
-
-.mainBtn:hover{
-
-transform:translateY(-4px);
-
-box-shadow:
-
-0 0 30px rgba(0,180,255,.9),
-
-0 0 60px rgba(0,120,255,.5);
-
-}
-
-/* Ripple */
-
-.mainBtn::after{
-
-content:"";
-
-position:absolute;
-
-left:50%;
-
-top:50%;
-
-width:10px;
-
-height:10px;
-
-border-radius:50%;
-
-background:rgba(255,255,255,.45);
-
-transform:translate(-50%,-50%) scale(0);
-
-animation:ripple 2.5s infinite;
-
-}
-
-@keyframes ripple{
-
-0%{
-
-transform:translate(-50%,-50%) scale(0);
-
-opacity:.8;
-
-}
-
-70%{
-
-transform:translate(-50%,-50%) scale(22);
-
-opacity:0;
-
-}
-
-100%{
-
-opacity:0;
-
-}
-
-}
-
-/*==========================
-SUB BUTTONS
-==========================*/
-
-.subMenu{
-
-display:none;
-
-padding-top:18px;
-
-}
-
-.subMenu.active{
-
-display:block;
-
-animation:fade .35s;
-
-}
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-transform:translateY(-10px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-/*==========================
-FOLDER BUTTON
-==========================*/
-
-.folder{
-
-display:block;
-
-position:relative;
-
-margin-bottom:16px;
-
-padding:15px;
-
-padding-top:22px;
-
-text-decoration:none;
-
-font-weight:600;
-
-color:white;
-
-text-align:center;
-
-border-radius:8px;
-
-background:
-
-linear-gradient(
-
-135deg,
-
-#5d0a00 0%,
-
-#9d2100 10%,
-
-#d04000 20%,
-
-#f1a300 35%,
-
-#ffe75a 50%,
-
-#f5b000 60%,
-
-#b62f00 75%,
-
-#7d1200 90%,
-
-#4d0600 100%
-
-);
-
-box-shadow:
-
-0 4px 12px rgba(0,0,0,.35),
-
-inset 0 1px 2px rgba(255,255,255,.7);
-
-transition:.30s;
-
-}
-
-/* Folder tab */
-
-.folder:before{
-
-content:"";
-
-position:absolute;
-
-top:-8px;
-
-left:18px;
-
-width:70px;
-
-height:18px;
-
-border-radius:6px 6px 0 0;
-
-background:
-
-linear-gradient(
-
-90deg,
-
-#f8ea74,
-
-#c67a00,
-
-#ffef8a
-
-);
-
-}
-
-.folder:hover{
-
-transform:translateX(6px);
-
-box-shadow:
-
-0 0 18px gold;
-
-}
-
-/*==========================
-FOOTER
-==========================*/
-
-footer{
-
-position:fixed;
-
-bottom:10px;
-
-left:0;
-
-width:100%;
-
-text-align:center;
-
-font-size:13px;
-
-color:white;
-
-letter-spacing:1px;
-
-text-shadow:0 0 4px black;
-
-}
-
-@media(max-width:950px){
-
-.grid{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-
-.card{
-
-width:100%;
-
-max-width:420px;
-
-}
-
-}
-
-</style>
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>PROCUREMENT CORNER</h1>
+    <h1>PROCUREMENT CORNER</h1>
 
-<div class="grid">
+    <div class="grid">
 
-<!-- BUTTON 1 -->
+        <!-- Monitoring Dashboard -->
+        <div class="card">
 
-<div class="card">
+            <button class="mainBtn">
+                Monitoring Dashboard
+            </button>
 
-<button class="mainBtn">Monitoring Dashboard</button>
+            <div class="subMenu">
 
-<div class="subMenu">
+                <a href="#" class="folder">Repository 1</a>
 
-<a class="folder" href="#" target="_blank">Repository 1</a>
+                <a href="#" class="folder">Repository 2</a>
 
-<a class="folder" href="#" target="_blank">Repository 2</a>
+                <a href="#" class="folder">Repository 3</a>
 
-<a class="folder" href="#" target="_blank">Repository 3</a>
+                <a href="#" class="folder">Repository 4</a>
 
-<a class="folder" href="#" target="_blank">Repository 4</a>
+                <a href="#" class="folder">Repository 5</a>
 
-<a class="folder" href="#" target="_blank">Repository 5</a>
+            </div>
 
-</div>
+        </div>
 
-</div>
+        <!-- KKB -->
+        <div class="card">
 
-<!-- BUTTON 2 -->
+            <button class="mainBtn">
+                MOVs Repository (KKB-CDD)
+            </button>
 
-<div class="card">
+            <div class="subMenu">
 
-<button class="mainBtn">MOVs Repository (KKB-CDD)</button>
+                <a href="#" class="folder">Invitation to Bid</a>
 
-<div class="subMenu">
+                <a href="#" class="folder">BAC Documents</a>
 
-<a class="folder" href="#" target="_blank">Invitation to Bid</a>
+                <a href="#" class="folder">Notice of Award</a>
 
-<a class="folder" href="#" target="_blank">BAC Documents</a>
+            </div>
 
-<a class="folder" href="#" target="_blank">Notice of Award</a>
+        </div>
 
-</div>
+        <!-- PCRP -->
+        <div class="card">
 
-</div>
+            <button class="mainBtn">
+                MOVs Repository (PCRP)
+            </button>
 
-<!-- BUTTON 3 -->
+            <div class="subMenu">
 
-<div class="card">
+                <a href="#" class="folder">Program of Work</a>
 
-<button class="mainBtn">MOVs Repository (PCRP)</button>
+                <a href="#" class="folder">Cost Estimates</a>
 
-<div class="subMenu">
+                <a href="#" class="folder">As-Built Plans</a>
 
-<a class="folder" href="#" target="_blank">Program of Work</a>
+            </div>
 
-<a class="folder" href="#" target="_blank">Cost Estimates</a>
+        </div>
 
-<a class="folder" href="#" target="_blank">As-Built Plans</a>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 
 <footer>
-
-© 2026 Ghilous. All Rights Reserved.
-
+    © 2026 Ghilous. All Rights Reserved.
 </footer>
 
-<script>
-
-const buttons=document.querySelectorAll(".mainBtn");
-
-buttons.forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-const menu=btn.nextElementSibling;
-
-menu.classList.toggle("active");
-
-});
-
-});
-
-</script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
