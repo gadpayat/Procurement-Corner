@@ -400,13 +400,26 @@
 
     <script>
         const buttons = document.querySelectorAll(".mainBtn");
+        const menus = document.querySelectorAll(".subMenu");
 
         buttons.forEach(button => {
-            button.addEventListener("click", () => {
-                const menu = button.nextElementSibling;
-                menu.classList.toggle("active");
-            });
+        button.addEventListener("click", () => {
+
+        const currentMenu = button.nextElementSibling;
+        const isOpen = currentMenu.classList.contains("active");
+
+        // Close all open submenus
+        menus.forEach(menu => {
+            menu.classList.remove("active");
         });
+
+        // If the clicked menu wasn't open, open it
+        if (!isOpen) {
+            currentMenu.classList.add("active");
+        }
+
+    });
+});
     </script>
 
 </body>
