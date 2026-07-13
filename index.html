@@ -93,36 +93,28 @@
             border-radius: 50%;
             margin:0 auto;
             cursor: pointer;
-            overflow: hidden;
+            overflow:hidden;
+            padding:10px;
+            background-clip:border-box,padding-box;
 
-            border:10px solid;
+            border:none;
+            border-radius:50%;
+            box-sizing:border-box;
 
-            border-image:linear-gradient(
+            background:
+                linear-gradient(
                 135deg,
                 #ffffff 0%,
                 #eef1f4 8%,
                 #d9dde1 18%,
                 #b9c0c7 30%,
-                #8d959d 42%,
+                #8b939b 42%,
                 #d5d9de 55%,
-                #f7f8fa 68%,
-                #b6bcc3 82%,
-                #ffffff 100%
-                ) 1;
-            border-image:linear-gradient(
-135deg,
-#f8f9fa 0%,
-#d9dde1 8%,
-#b9c0c7 18%,
-#8b939b 30%,
-#6d747c 42%,
-#d5d9de 55%,
-#f2f3f5 68%,
-#9aa2aa 80%,
-#eef2f5 92%,
-#b8c0c8 100%) 1;
-
-            background:
+                #f2f3f5 68%,
+                #9aa2aa 80%,
+                #eef2f5 92%,
+                #b8c0c8 100%
+                ) border-box,
                 radial-gradient(circle at 50% 30%,
                     #dff7ff 0%,
                     #7fd8ff 15%,
